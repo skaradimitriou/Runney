@@ -3,7 +3,7 @@ package com.stathis.runney.abstraction
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-abstract class AbstractActivity : AppCompatActivity() {
+abstract class AbstractActivity(layoutId : Int) : AppCompatActivity(layoutId) {
 
     abstract fun init()
     abstract fun startOps()

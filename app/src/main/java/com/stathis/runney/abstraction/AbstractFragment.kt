@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 
-abstract class AbstractFragment : Fragment() {
+abstract class AbstractFragment(layoutId : Int) : Fragment(layoutId) {
 
     abstract fun init()
     abstract fun startOps()
