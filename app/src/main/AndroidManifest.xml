@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Runney">
         <activity
+            android:name=".features.register.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".features.splash.SplashActivity"
+            android:exported="true" />
+        <activity
+            android:name=".features.login.LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".features.dashboard.MainActivity"
             android:exported="true">
             <intent-filter>
