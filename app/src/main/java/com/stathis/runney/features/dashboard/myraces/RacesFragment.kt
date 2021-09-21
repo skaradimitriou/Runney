@@ -10,7 +10,7 @@ import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractFragment
 import com.stathis.runney.databinding.FragmentRacesBinding
 
-class RacesFragment : AbstractFragment(R.layout.fragment_races) {
+class RacesFragment : AbstractFragment() {
 
     private lateinit var binding: FragmentRacesBinding
     private lateinit var viewModel: RacesViewModel

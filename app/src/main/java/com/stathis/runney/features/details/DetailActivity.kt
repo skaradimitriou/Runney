@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractActivity
 
-class DetailActivity : AbstractActivity(R.layout.activity_detail) {
+class DetailActivity : AbstractActivity() {
 
     private lateinit var viewModel: DetailsViewModel
 

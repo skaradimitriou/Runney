@@ -10,7 +10,7 @@ import com.stathis.runney.abstraction.AbstractFragment
 import com.stathis.runney.databinding.FragmentProfileBinding
 
 
-class ProfileFragment : AbstractFragment(R.layout.fragment_profile) {
+class ProfileFragment : AbstractFragment() {
 
     private lateinit var binding : FragmentProfileBinding
     private lateinit var viewModel: ProfileViewModel

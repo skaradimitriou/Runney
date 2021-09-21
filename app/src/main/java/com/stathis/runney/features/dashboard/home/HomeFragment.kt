@@ -9,7 +9,7 @@ import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractFragment
 import com.stathis.runney.databinding.FragmentHomeBinding
 
-class HomeFragment : AbstractFragment(R.layout.fragment_home) {
+class HomeFragment : AbstractFragment() {
 
     private lateinit var binding : FragmentHomeBinding
     private lateinit var viewModel : HomeViewModel
