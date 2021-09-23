@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractFragment
@@ -29,10 +30,14 @@ class RacesFragment : AbstractFragment() {
     }
 
     override fun startOps() {
-        //
+        binding.racesRecycler.adapter = viewModel.adapter
+
+        viewModel.data.observe(this, Observer{
+            viewModel.adapter.submitList(it)
+        })
     }
 
     override fun stopOps() {
-        //
+        viewModel.data.removeObservers(this)
     }
 }
