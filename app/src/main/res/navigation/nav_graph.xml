@@ -15,4 +15,9 @@
         android:name="com.stathis.runney.features.dashboard.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_races"
+        android:name="com.stathis.runney.features.dashboard.myraces.RacesFragment"
+        android:label="fragment_races"
+        tools:layout="@layout/fragment_races" />
 </navigation>

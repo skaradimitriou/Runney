@@ -15,5 +15,6 @@
     <string name="create_account_btn">Create account</string>
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="login_btn">Login</string>
+    <string name="races">Races</string>
 
 </resources>

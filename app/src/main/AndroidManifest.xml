@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Runney">
         <activity
+            android:name=".features.details.DetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".features.forgotpassword.ForgotPasswordActivity"
             android:exported="true" />
         <activity

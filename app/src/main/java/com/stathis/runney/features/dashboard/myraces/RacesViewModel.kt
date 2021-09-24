@@ -1,22 +1,22 @@
 package com.stathis.runney.features.dashboard.myraces
 
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.stathis.runney.callbacks.ItemClickListener
+import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.features.dashboard.myraces.adapter.RaceAdapter
 import com.stathis.runney.features.dashboard.myraces.model.RunningRace
 
-class RacesViewModel : ViewModel(), ItemClickListener {
+class RacesViewModel : ViewModel(), RacesClickListener {
 
     val adapter = RaceAdapter(this)
     val data = MutableLiveData<List<RunningRace>>()
+    private lateinit var callback : RacesClickListener
 
-    init {
-        getData()
-    }
-
-    private fun getData() {
+    fun getData(callback : RacesClickListener) {
+        this.callback = callback
         val list = listOf(
             RunningRace("Test 1", "", ""),
             RunningRace("Test 2", "", ""),
@@ -28,7 +28,5 @@ class RacesViewModel : ViewModel(), ItemClickListener {
         data.value = list
     }
 
-    override fun onItemTap(view: View) {
-        //
-    }
+    override fun onRaceTap(race: RunningRace) = callback.onRaceTap(race)
 }
