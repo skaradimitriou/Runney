@@ -28,7 +28,7 @@ class HomeFragment : AbstractFragment() {
     }
 
     override fun startOps() {
-        //
+        binding
     }
 
     override fun stopOps() {

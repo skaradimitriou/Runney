@@ -16,5 +16,6 @@
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="login_btn">Login</string>
     <string name="races">Races</string>
+    <string name="search_topics_header">Topics</string>
 
 </resources>

@@ -1,10 +1,7 @@
 package com.stathis.runney.features.dashboard.myraces
 
-import android.util.Log
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.stathis.runney.callbacks.ItemClickListener
 import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.features.dashboard.myraces.adapter.RaceAdapter
 import com.stathis.runney.features.dashboard.myraces.model.RunningRace

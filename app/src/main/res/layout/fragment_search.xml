@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:padding="@dimen/dimen_16"
+    tools:context=".features.dashboard.search.SearchFragment">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_searchbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_corners"
+        android:backgroundTint="@color/white"
+        android:focusable="true"
+        app:iconifiedByDefault="false"
+        app:layout_constraintCircleRadius="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="Search by a word..."
+        app:searchIcon="@drawable/search_icon_dark_grey" />
+
+    <TextView
+        android:id="@+id/topics_header"
+        style="@style/text_h2_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_16"
+        android:text="@string/search_topics_header"
+        app:layout_constraintTop_toBottomOf="@id/search_searchbar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/topics_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/holder_search_category_item"
+        tools:itemCount="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topics_header" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
