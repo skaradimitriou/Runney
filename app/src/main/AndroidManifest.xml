@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Runney">
         <activity
+            android:name=".features.raceDetails.RaceDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".features.newsDetails.NewsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".features.races.RacesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".features.bookmarks.BookmarkActivity"
+            android:exported="true" />
+        <activity
             android:name=".features.details.DetailActivity"
             android:exported="true" />
         <activity

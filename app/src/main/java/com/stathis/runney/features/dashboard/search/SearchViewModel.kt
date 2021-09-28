@@ -19,7 +19,7 @@ class SearchViewModel : ViewModel(), SearchScreenCallback {
             SearchCategory("Latest News"),
             SearchCategory("Popular News"),
             SearchCategory("Running Races"),
-            SearchCategory("Articles"),
+            SearchCategory("Articles")
         )
 
         adapter.submitList(list)
