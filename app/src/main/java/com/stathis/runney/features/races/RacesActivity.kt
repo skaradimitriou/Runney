@@ -3,7 +3,9 @@ package com.stathis.runney.features.races
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.runney.abstraction.AbstractActivity
+import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.databinding.ActivityRacesBinding
+import com.stathis.runney.models.RunningRace
 
 class RacesActivity : AbstractActivity() {
 
@@ -21,7 +23,13 @@ class RacesActivity : AbstractActivity() {
     }
 
     override fun startOps() {
-        //
+        binding.racesScreenRecycler.adapter = viewModel.adapter
+
+        viewModel.getData(object : RacesClickListener {
+            override fun onRaceTap(race: RunningRace) {
+                //do magic
+            }
+        })
     }
 
     override fun stopOps() {

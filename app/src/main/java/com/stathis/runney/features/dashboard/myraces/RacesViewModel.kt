@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.features.dashboard.myraces.adapter.RaceAdapter
-import com.stathis.runney.features.dashboard.myraces.model.RunningRace
+import com.stathis.runney.models.RunningRace
 
 class RacesViewModel : ViewModel(), RacesClickListener {
 

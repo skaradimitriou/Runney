@@ -5,7 +5,7 @@
     <data>
         <variable
             name="runningRace"
-            type="com.stathis.runney.features.dashboard.myraces.model.RunningRace" />
+            type="com.stathis.runney.models.RunningRace" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

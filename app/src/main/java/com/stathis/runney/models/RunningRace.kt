@@ -1,4 +1,4 @@
-package com.stathis.runney.features.dashboard.myraces.model
+package com.stathis.runney.models
 
 import com.stathis.runney.abstraction.LocalModel
 
