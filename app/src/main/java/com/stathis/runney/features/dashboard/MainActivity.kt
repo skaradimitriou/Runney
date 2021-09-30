@@ -19,6 +19,8 @@ class MainActivity : AbstractActivity() {
     }
 
     override fun init() {
+        supportActionBar?.hide()
+
         val navController = findNavController(R.id.nav_host_fragment)
         binding.bottomBar.onItemSelected = {
             when(it){

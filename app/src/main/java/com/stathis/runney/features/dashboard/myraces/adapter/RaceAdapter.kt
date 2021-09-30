@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.stathis.runney.abstraction.DiffUtilClass
 import com.stathis.runney.abstraction.LocalModel
-import com.stathis.runney.callbacks.ItemClickListener
 import com.stathis.runney.callbacks.RacesClickListener
-import com.stathis.runney.databinding.HolderRaceItemBinding
 import com.stathis.runney.databinding.HolderRacesVerticalItemBinding
 
 class RaceAdapter(private val callback : RacesClickListener) : ListAdapter<LocalModel, RaceViewHolder>(DiffUtilClass<LocalModel>()) {
