@@ -24,7 +24,7 @@ class RacesFragment : AbstractFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentRacesBinding.inflate(layoutInflater)
+        binding = FragmentRacesBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -39,14 +39,10 @@ class RacesFragment : AbstractFragment() {
 
         binding.racesRecycler.adapter = viewModel.adapter
 
-        viewModel.data.observe(this, Observer{
-            viewModel.adapter.submitList(it)
-        })
+        viewModel.observe(this)
     }
 
-    override fun stopOps() {
-        viewModel.data.removeObservers(this)
-    }
+    override fun stopOps() = viewModel.release(this)
 
 
     private fun openRaceDetails(race: RunningRace) {

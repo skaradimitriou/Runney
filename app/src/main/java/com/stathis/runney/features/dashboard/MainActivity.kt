@@ -20,7 +20,14 @@ class MainActivity : AbstractActivity() {
 
     override fun init() {
         val navController = findNavController(R.id.nav_host_fragment)
-        binding.bottomNavigation.setupWithNavController(navController)
+        binding.bottomBar.onItemSelected = {
+            when(it){
+                0 -> navController.navigate(R.id.nav_home)
+                1 -> navController.navigate(R.id.nav_races)
+                2 -> navController.navigate(R.id.nav_profile)
+                else -> Unit
+            }
+        }
     }
 
     override fun startOps() {}

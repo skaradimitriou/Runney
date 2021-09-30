@@ -6,17 +6,17 @@ import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.databinding.HolderRacesVerticalItemBinding
 import com.stathis.runney.models.RunningRace
 
-class RacesScreenViewHolder(val binding : HolderRacesVerticalItemBinding,val callback : RacesClickListener) : RecyclerView.ViewHolder(binding.root) {
+class RacesScreenViewHolder(
+    val binding: HolderRacesVerticalItemBinding,
+    val callback: RacesClickListener
+) : RecyclerView.ViewHolder(binding.root) {
 
-    fun present(data : LocalModel){
-        when(data){
+    fun present(data: LocalModel) {
+        when (data) {
             is RunningRace -> {
-                binding.apply{
+                binding.apply {
                     binding.runningRace = data
-
-                    binding.parent.setOnClickListener{
-                        callback.onRaceTap(binding.runningRace)
-                    }
+                    binding.parentScreen.setOnClickListener { callback.onRaceTap(data) }
                 }
             }
         }
