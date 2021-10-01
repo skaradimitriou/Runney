@@ -26,5 +26,7 @@
     <string name="login_btn">Login</string>
     <string name="search_topics_header">Topics</string>
     <string name="profile_edit_underlined"><u>EDIT PROFILE</u></string>
+    <string name="dark_mode_header">DARK MODE</string>
+    <string name="lorem_ipsum">Lorem Ipsum sit dolor amet</string>
 
 </resources>

@@ -33,9 +33,9 @@ class ProfileViewModel(app: Application) : AbstractViewModel(app), ProfileOption
     fun getData() {
         adapter.submitList(
             listOf(
-                ProfileOption(getString(R.string.favorites), R.drawable.ic_launcher_foreground),
-                ProfileOption(getString(R.string.bookmarks), R.drawable.ic_launcher_foreground),
-                ProfileOption(getString(R.string.settings), R.drawable.ic_launcher_foreground)
+                ProfileOption(getString(R.string.favorites), R.drawable.ic_heart),
+                ProfileOption(getString(R.string.bookmarks), R.drawable.ic_bookmark),
+                ProfileOption(getString(R.string.settings), R.drawable.ic_settings)
             )
         )
     }

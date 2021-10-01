@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/dark_mode_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/dark_mode_desc"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/light_blue"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/dark_mode_header"
+        android:text="@string/dark_mode_header"
+        android:textStyle="bold"
+        android:paddingTop="@dimen/dimen_16"
+        android:paddingStart="@dimen/dimen_16"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/dark_mode_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/dark_mode_desc"
+        android:text="@string/lorem_ipsum"
+        android:paddingStart="@dimen/dimen_16"
+        android:paddingBottom="@dimen/dimen_16"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/dark_mode_header"
+        app:layout_constraintStart_toStartOf="@id/dark_mode_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/dark_mode_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_16"
+        app:layout_constraintEnd_toEndOf="@id/dark_mode_bg"
+        app:layout_constraintTop_toTopOf="@id/dark_mode_bg"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

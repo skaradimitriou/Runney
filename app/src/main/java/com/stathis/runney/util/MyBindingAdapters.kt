@@ -19,6 +19,12 @@ class MyBindingAdapters {
         fun loadMyImg(img : ImageView, url : String){
             img.load(url)
         }
+
+        @BindingAdapter("setImgResource")
+        @JvmStatic
+        fun setImage(img : ImageView, imgFile : Int){
+            img.setImageResource(imgFile)
+        }
     }
 }
 

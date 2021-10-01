@@ -32,10 +32,18 @@ class ProfileFragment : AbstractFragment() {
     }
 
     override fun startOps() {
+        /*
+        FIXME: Implement dark mode functionality in profile
+         */
+
         binding.profileOptionsRecycler.adapter = viewModel.adapter
 
         binding.editProfile.setOnClickListener {
             //redirect to edit profile screen
+        }
+
+        binding.darkModeLayout.apply {
+            //do magic
         }
 
         viewModel.bindCallback(object : ProfileOptionsCallback{
@@ -47,10 +55,6 @@ class ProfileFragment : AbstractFragment() {
         viewModel.user.observe(this, Observer{
             binding.user = it
         })
-
-        /*
-        FIXME: Implement dark mode functionality in profile
-         */
     }
 
     override fun stopOps() = viewModel.user.removeObservers(this)
