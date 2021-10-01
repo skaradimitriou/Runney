@@ -7,6 +7,8 @@ data class RunningRace(
     val title : String,
     val image : String,
     val date : String,
+    val location : String,
+    val cost : Int
 
 ) : LocalModel {
     override fun equalsContent(data: LocalModel): Boolean = false

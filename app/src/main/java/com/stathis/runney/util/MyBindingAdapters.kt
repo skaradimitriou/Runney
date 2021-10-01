@@ -1,6 +1,7 @@
 package com.stathis.runney.util
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import coil.load
 
@@ -24,6 +25,12 @@ class MyBindingAdapters {
         @JvmStatic
         fun setImage(img : ImageView, imgFile : Int){
             img.setImageResource(imgFile)
+        }
+
+        @BindingAdapter("setIntTextToEuros")
+        @JvmStatic
+        fun TextView.setText(value : Int){
+            this.text = "$value €"
         }
     }
 }

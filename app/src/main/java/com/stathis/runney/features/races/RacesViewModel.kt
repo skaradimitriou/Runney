@@ -14,11 +14,11 @@ class RacesViewModel : ViewModel(), RacesClickListener {
         this.callback = callback
 
         adapter.submitList(listOf(
-            RunningRace("Test 1", "", ""),
-            RunningRace("Test 2", "", ""),
-            RunningRace("Test 3", "", ""),
-            RunningRace("Test 4","",""),
-            RunningRace("Test 5","","")
+            RunningRace("Test 1", "", "","",1),
+            RunningRace("Test 2", "", "","",1),
+            RunningRace("Test 3", "", "","",1),
+            RunningRace("Test 4","","","",1),
+            RunningRace("Test 5","","","",1)
         ))
     }
 

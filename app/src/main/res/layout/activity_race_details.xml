@@ -1,9 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".features.raceDetails.RaceDetailsActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="race"
+            type="com.stathis.runney.models.RunningRace" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/activity_race_details_xml_constraintlayout5_scene"
+        tools:context=".features.raceDetails.RaceDetailsActivity">
+
+        <ImageView
+            android:id="@+id/race_img"
+            loadImageFromUrl="@{race.image}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_200"
+            android:contentDescription="@{race.title}"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/race_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimen_10"
+            android:text="@{race.title}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/race_img"
+            tools:text="@string/lorem_ipsum" />
+
+        <View
+            android:id="@+id/race_when_bg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/image_80"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:layout_constraintEnd_toStartOf="@id/race_where_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/race_title" />
+
+        <TextView
+            android:id="@+id/race_when_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dimen_16"
+            android:text="@string/when"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/race_when_bg"
+            app:layout_constraintStart_toStartOf="@id/race_when_bg"
+            app:layout_constraintTop_toTopOf="@id/race_when_bg" />
+
+        <TextView
+            android:id="@+id/race_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimen_5"
+            android:paddingTop="@dimen/dimen_10"
+            android:text="@{race.date}"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/race_when_bg"
+            app:layout_constraintStart_toStartOf="@id/race_when_bg"
+            app:layout_constraintTop_toBottomOf="@id/race_when_title"
+            tools:text="@string/lorem_ipsum" />
+
+        <View
+            android:id="@+id/race_where_bg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/image_80"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:layout_constraintEnd_toStartOf="@id/race_cost_bg"
+            app:layout_constraintStart_toEndOf="@id/race_when_bg"
+            app:layout_constraintTop_toTopOf="@id/race_when_bg" />
+
+        <TextView
+            android:id="@+id/race_where_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dimen_16"
+            android:text="@string/location"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/race_where_bg"
+            app:layout_constraintStart_toStartOf="@id/race_where_bg"
+            app:layout_constraintTop_toTopOf="@id/race_where_bg" />
+
+        <TextView
+            android:id="@+id/race_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimen_5"
+            android:paddingTop="@dimen/dimen_10"
+            android:text="@{race.location}"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/race_where_bg"
+            app:layout_constraintStart_toStartOf="@id/race_where_bg"
+            app:layout_constraintTop_toBottomOf="@id/race_where_title"
+            tools:text="@string/lorem_ipsum" />
+
+        <View
+            android:id="@+id/race_cost_bg"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/image_80"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="@color/design_default_color_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/race_where_bg"
+            app:layout_constraintTop_toTopOf="@id/race_when_bg" />
+
+        <TextView
+            android:id="@+id/race_cost_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dimen_16"
+            android:text="@string/cost"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/race_cost_bg"
+            app:layout_constraintStart_toStartOf="@id/race_cost_bg"
+            app:layout_constraintTop_toTopOf="@id/race_cost_bg" />
+
+        <TextView
+            android:id="@+id/race_cost"
+            setIntTextToEuros="@{race.cost}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimen_5"
+            android:paddingTop="@dimen/dimen_10"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/race_cost_bg"
+            app:layout_constraintStart_toStartOf="@id/race_cost_bg"
+            app:layout_constraintTop_toBottomOf="@id/race_cost_title"
+            tools:text="@string/lorem_ipsum" />
+
+        <TextView
+            android:id="@+id/race_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_10"
+            android:text="@string/long_text"
+            android:justificationMode="inter_word"
+            app:layout_constraintStart_toStartOf="@id/race_cost_bg"
+            app:layout_constraintTop_toBottomOf="@id/race_when_bg"
+            tools:text="@string/long_text" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

@@ -28,5 +28,9 @@
     <string name="profile_edit_underlined"><u>EDIT PROFILE</u></string>
     <string name="dark_mode_header">DARK MODE</string>
     <string name="lorem_ipsum">Lorem Ipsum sit dolor amet</string>
+    <string name="long_text">Curabitur luctus viverra tempor. In lacinia cursus est, eu consectetur lectus auctor ut. Aenean in tempus dui, dignissim vestibulum odio. Mauris id nulla metus. Morbi tincidunt et nulla vitae tristique. Maecenas sagittis libero in augue egestas lacinia. Donec lobortis consequat leo a convallis. Nullam vitae lacus at lorem interdum dignissim. Curabitur nunc nibh, fermentum in consectetur id, consectetur vel diam. Nulla non dignissim magna. Morbi quis tellus non metus tristique molestie. Etiam pretium dignissim purus quis rutrum. Ut ac tempor nunc. Integer ultrices arcu at nisl fringilla volutpat nec rhoncus sem. Nam massa urna, varius in nisl id, molestie varius turpis. Fusce faucibus urna erat, id efficitur sapien vestibulum sit amet.</string>
+    <string name="cost">Κόστος</string>
+    <string name="location">Τόπος</string>
+    <string name="when">Διεξαγωγή</string>
 
 </resources>

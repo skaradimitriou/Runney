@@ -13,6 +13,7 @@ import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.databinding.FragmentRacesBinding
 import com.stathis.runney.models.RunningRace
 import com.stathis.runney.features.details.DetailActivity
+import com.stathis.runney.features.raceDetails.RaceDetailsActivity
 
 class RacesFragment : AbstractFragment() {
 
@@ -47,7 +48,7 @@ class RacesFragment : AbstractFragment() {
 
     private fun openRaceDetails(race: RunningRace) {
         val model = Gson().toJson(race)
-        startActivity(Intent(requireContext(),DetailActivity::class.java).also {
+        startActivity(Intent(requireContext(),RaceDetailsActivity::class.java).also {
             it.putExtra("RACE",model)
         })
     }
