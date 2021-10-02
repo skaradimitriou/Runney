@@ -33,7 +33,6 @@
         android:paddingStart="@dimen/dimen_16"
         android:paddingBottom="@dimen/dimen_16"
         android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/dark_mode_header"
         app:layout_constraintStart_toStartOf="@id/dark_mode_bg"
         android:layout_width="match_parent"

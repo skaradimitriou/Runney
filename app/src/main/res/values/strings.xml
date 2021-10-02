@@ -17,6 +17,10 @@
     <string name="bookmarks">Σελιδοδείκτες</string>
     <string name="settings">Ρυθμίσεις</string>
 
+    <string name="news">Νέα</string>
+    <string name="article">Άρθρα</string>
+    <string name="running_races">Αγώνες Δρόμου</string>
+    <string name="something_else">Κάτι Άλλο</string>
 
     <string name="e_mail_hint">E-mail</string>
     <string name="pass_hint">Password</string>
@@ -32,5 +36,6 @@
     <string name="cost">Κόστος</string>
     <string name="location">Τόπος</string>
     <string name="when">Διεξαγωγή</string>
+    <string name="greeting">Hello</string>
 
 </resources>

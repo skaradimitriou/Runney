@@ -41,6 +41,13 @@ class RacesFragment : AbstractFragment() {
         binding.racesRecycler.adapter = viewModel.adapter
 
         viewModel.observe(this)
+
+        viewModel.isLoading.observe(this, Observer{
+            when(it){
+                true -> binding.racesProgress.visibility = View.VISIBLE
+                false -> binding.racesProgress.visibility = View.GONE
+            }
+        })
     }
 
     override fun stopOps() = viewModel.release(this)

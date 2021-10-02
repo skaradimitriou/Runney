@@ -1,34 +1,32 @@
-package com.stathis.runney.features.bookmarks
+package com.stathis.runney.features.editProfile
 
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.runney.abstraction.AbstractActivity
-import com.stathis.runney.databinding.ActivityBookmarkBinding
+import com.stathis.runney.databinding.ActivityEditProfileBinding
 
-class BookmarkActivity : AbstractActivity() {
+class EditProfileActivity : AbstractActivity() {
 
-    private lateinit var viewModel: BookmarkViewModel
-    private lateinit var binding: ActivityBookmarkBinding
+    private lateinit var viewModel : EditProfileViewModel
+    private lateinit var binding : ActivityEditProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityBookmarkBinding.inflate(layoutInflater)
+        binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
     override fun init() {
-        viewModel = ViewModelProvider(this).get(BookmarkViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(EditProfileViewModel::class.java)
     }
 
     override fun startOps() {
-        supportActionBar?.title = "My Bookmarks"
+        supportActionBar?.title = "Edit Profile"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun stopOps() {
-        //
-    }
+    override fun stopOps() {}
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){

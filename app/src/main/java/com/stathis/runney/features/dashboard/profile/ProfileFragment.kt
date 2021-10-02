@@ -1,16 +1,21 @@
 package com.stathis.runney.features.dashboard.profile
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractFragment
 import com.stathis.runney.callbacks.ProfileOptionsCallback
 import com.stathis.runney.databinding.FragmentProfileBinding
+import com.stathis.runney.features.bookmarks.BookmarkActivity
 import com.stathis.runney.features.dashboard.profile.model.ProfileOption
+import com.stathis.runney.features.editProfile.EditProfileActivity
 
 
 class ProfileFragment : AbstractFragment() {
@@ -32,29 +37,52 @@ class ProfileFragment : AbstractFragment() {
     }
 
     override fun startOps() {
-        /*
-        FIXME: Implement dark mode functionality in profile
-         */
-
         binding.profileOptionsRecycler.adapter = viewModel.adapter
 
-        binding.editProfile.setOnClickListener {
-            //redirect to edit profile screen
-        }
+        binding.editProfile.setOnClickListener { goToEditProfile() }
 
-        binding.darkModeLayout.apply {
-            //do magic
+        binding.darkModeLayout.darkModeSwitch.setOnCheckedChangeListener { compoundButton, isChecked ->
+            when(isChecked){
+                true -> darkModeEnabled(true)
+                false -> darkModeEnabled(false)
+            }
         }
-
         viewModel.bindCallback(object : ProfileOptionsCallback{
             override fun onOptionTap(option: ProfileOption) {
-                //
+                when(option.title){
+                    getString(R.string.favorites) -> goToFavorites()
+                    getString(R.string.bookmarks) -> goToBookmarks()
+                    getString(R.string.settings) -> goToSettings()
+                }
             }
         })
 
         viewModel.user.observe(this, Observer{
             binding.user = it
         })
+    }
+
+    private fun darkModeEnabled(isChecked: Boolean) {
+//        when(isChecked){
+//            true -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//            false -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//        }
+    }
+
+    private fun goToEditProfile() {
+        startActivity(Intent(requireContext(), EditProfileActivity::class.java))
+    }
+
+    private fun goToBookmarks() {
+        startActivity(Intent(requireContext(), BookmarkActivity::class.java))
+    }
+
+    private fun goToSettings() {
+        //define screen
+    }
+
+    private fun goToFavorites() {
+        startActivity(Intent(requireContext(), BookmarkActivity::class.java))
     }
 
     override fun stopOps() = viewModel.user.removeObservers(this)

@@ -57,7 +57,7 @@
             android:layout_height="0dp"
             android:layout_margin="@dimen/dimen_10"
             android:background="@drawable/rounded_corners"
-            android:backgroundTint="@color/light_blue"
+            android:backgroundTint="@color/design_default_color_primary"
             app:layout_constraintBottom_toBottomOf="@id/profileOptionsRecycler"
             app:layout_constraintTop_toBottomOf="@id/editProfile" />
 
