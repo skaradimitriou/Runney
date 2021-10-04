@@ -1,12 +1,18 @@
 package com.stathis.runney.features.results
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
 import com.stathis.runney.abstraction.AbstractActivity
 import com.stathis.runney.callbacks.ResultsCallback
 import com.stathis.runney.databinding.ActivityResultsBinding
+import com.stathis.runney.features.articledetails.ArticleDetailsActivity
+import com.stathis.runney.features.newsDetails.NewsActivity
+import com.stathis.runney.features.raceDetails.RaceDetailsActivity
 import com.stathis.runney.models.Article
 import com.stathis.runney.models.News
 import com.stathis.runney.models.RunningRace
@@ -38,9 +44,9 @@ class ResultsActivity : AbstractActivity() {
         binding.resultsRecycler.adapter = viewModel.adapter
 
         viewModel.bindCallback(object : ResultsCallback{
-            override fun onNewsTap(news: News) = openNews()
-            override fun onRaceTap(race: RunningRace) = openRace()
-            override fun onArticleTap(article: Article) = openArticle()
+            override fun onNewsTap(news: News) = openNews(news)
+            override fun onRaceTap(race: RunningRace) = openRace(race)
+            override fun onArticleTap(article: Article) = openArticle(article)
         })
 
         viewModel.observe(this)
@@ -58,9 +64,34 @@ class ResultsActivity : AbstractActivity() {
         viewModel.isLoading.removeObservers(this)
     }
 
-    private fun openNews(){}
+    private fun openNews(news: News){
+        val json = Gson().toJson(news)
+        startActivity(Intent(this,NewsActivity::class.java).also{
+            it.putExtra("NEWS",json)
+        })
+    }
 
-    private fun openRace(){}
+    private fun openRace(race : RunningRace){
+        val json = Gson().toJson(race)
+        startActivity(Intent(this,RaceDetailsActivity::class.java).also{
+            it.putExtra("RACE",json)
+        })
+    }
 
-    private fun openArticle(){}
+    private fun openArticle(article : Article){
+        val json = Gson().toJson(article)
+        startActivity(Intent(this, ArticleDetailsActivity::class.java).also{
+            it.putExtra("ARTICLE",json)
+        })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }

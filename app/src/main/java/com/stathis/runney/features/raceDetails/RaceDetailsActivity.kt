@@ -26,10 +26,6 @@ class RaceDetailsActivity : AbstractActivity() {
     }
 
     override fun startOps() {
-        /*
-        FIXME: Add Motion Layout
-         */
-
         val model = intent.getStringExtra("RACE") ?: ""
 
         model.let {

@@ -11,20 +11,42 @@ import com.stathis.runney.abstraction.LocalModel
 import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.callbacks.ResultsCallback
 import com.stathis.runney.databinding.HolderEmptyLayoutBinding
+import com.stathis.runney.databinding.HolderNewsVerticalItemBinding
 import com.stathis.runney.databinding.HolderRacesVerticalItemBinding
 import com.stathis.runney.features.races.adapter.RacesScreenViewHolder
 import com.stathis.runney.models.Article
 import com.stathis.runney.models.News
 import com.stathis.runney.models.RunningRace
 
-class ResultsAdapter(val callback : ResultsCallback) : ListAdapter<LocalModel,ResultsViewHolder>(DiffUtilClass<LocalModel>()) {
+class ResultsAdapter(val callback : ResultsCallback) : ListAdapter<LocalModel,BaseViewHolder>(DiffUtilClass<LocalModel>()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultsViewHolder {
-        val view = HolderRacesVerticalItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return ResultsViewHolder(view,callback)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return when(viewType){
+            R.layout.holder_races_vertical_item -> {
+                val view = HolderRacesVerticalItemBinding.inflate(inflater,parent,false)
+                ResultsViewHolder(view,callback)
+            }
+            R.layout.holder_news_vertical_item -> {
+                val view = HolderNewsVerticalItemBinding.inflate(inflater,parent,false)
+                NewsViewHolder(view,callback)
+            }
+
+            else -> {
+                val view = HolderEmptyLayoutBinding.inflate(inflater,parent,false)
+                EmptyViewHolder(view)
+            }
+        }
     }
 
-    override fun onBindViewHolder(holder: ResultsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.present(getItem(position))
+    }
+
+    override fun getItemViewType(position: Int): Int = when(getItem(position)){
+        is RunningRace -> R.layout.holder_races_vertical_item
+        is News -> R.layout.holder_news_vertical_item
+        is Article -> 2 //To be implemented later
+        else -> R.layout.holder_empty_layout
     }
 }
