@@ -15,7 +15,6 @@
     </style>
 
     <!-- Text Stylings -->
-
     <style name="text_h2_dark" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/black</item>

@@ -10,6 +10,7 @@ import com.stathis.runney.abstraction.EmptyViewHolder
 import com.stathis.runney.abstraction.LocalModel
 import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.callbacks.ResultsCallback
+import com.stathis.runney.databinding.HolderArticleItemBinding
 import com.stathis.runney.databinding.HolderEmptyLayoutBinding
 import com.stathis.runney.databinding.HolderNewsVerticalItemBinding
 import com.stathis.runney.databinding.HolderRacesVerticalItemBinding
@@ -32,6 +33,11 @@ class ResultsAdapter(val callback : ResultsCallback) : ListAdapter<LocalModel,Ba
                 NewsViewHolder(view,callback)
             }
 
+            R.layout.holder_article_item -> {
+                val view = HolderArticleItemBinding.inflate(inflater,parent,false)
+                ArticlesViewHolder(view,callback)
+            }
+
             else -> {
                 val view = HolderEmptyLayoutBinding.inflate(inflater,parent,false)
                 EmptyViewHolder(view)
@@ -46,7 +52,7 @@ class ResultsAdapter(val callback : ResultsCallback) : ListAdapter<LocalModel,Ba
     override fun getItemViewType(position: Int): Int = when(getItem(position)){
         is RunningRace -> R.layout.holder_races_vertical_item
         is News -> R.layout.holder_news_vertical_item
-        is Article -> 2 //To be implemented later
+        is Article -> R.layout.holder_article_item
         else -> R.layout.holder_empty_layout
     }
 }
