@@ -37,5 +37,6 @@
     <string name="location">Τόπος</string>
     <string name="when">Διεξαγωγή</string>
     <string name="greeting">Hello</string>
+    <string name="nav_seach">Αναζήτηση</string>
 
 </resources>

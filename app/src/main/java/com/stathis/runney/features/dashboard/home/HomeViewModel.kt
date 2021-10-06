@@ -41,9 +41,9 @@ class HomeViewModel(app: Application) : AbstractViewModel(app), HomeScreenCallba
 
     private fun getData() {
         val list = listOf(
-            HomeItem(getString(R.string.news),R.drawable.ic_heart),
-            HomeItem(getString(R.string.article),R.drawable.ic_heart),
-            HomeItem(getString(R.string.running_races),R.drawable.ic_heart),
+            HomeItem(getString(R.string.news),R.drawable.news),
+            HomeItem(getString(R.string.article),R.drawable.article),
+            HomeItem(getString(R.string.running_races),R.drawable.winner),
             HomeItem(getString(R.string.something_else),R.drawable.ic_heart))
 
         data.value = list

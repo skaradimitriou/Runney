@@ -40,14 +40,6 @@ class HomeFragment : AbstractFragment() {
     }
 
     override fun startOps() {
-        /*
-        FIXME: Stagerred grid with 3 categories (News, Articles, Running Races)
-
-               1. User Greeting
-               2. Something for desc
-               3. List with actions
-         */
-
         binding.staggeredRecycler.adapter = viewModel.adapter
 
         viewModel.bindCallback(object : HomeScreenCallback {

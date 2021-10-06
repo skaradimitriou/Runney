@@ -25,7 +25,7 @@ class MainActivity : AbstractActivity() {
         binding.bottomBar.onItemSelected = {
             when(it){
                 0 -> navController.navigate(R.id.nav_home)
-                1 -> navController.navigate(R.id.nav_races)
+                1 -> navController.navigate(R.id.nav_search)
                 2 -> navController.navigate(R.id.nav_profile)
                 else -> Unit
             }

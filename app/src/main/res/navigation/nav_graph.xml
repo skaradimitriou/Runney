@@ -10,14 +10,16 @@
         android:name="com.stathis.runney.features.dashboard.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.stathis.runney.features.dashboard.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
     <fragment
-        android:id="@+id/nav_races"
-        android:name="com.stathis.runney.features.dashboard.myraces.RacesFragment"
-        android:label="fragment_races"
-        tools:layout="@layout/fragment_races" />
+        android:id="@+id/nav_search"
+        android:name="com.stathis.runney.features.dashboard.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>
