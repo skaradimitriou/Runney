@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.stathis.runney.abstraction.AbstractFragment
 import com.stathis.runney.callbacks.SearchScreenCallback
 import com.stathis.runney.databinding.FragmentSearchBinding
+import com.stathis.runney.models.Query
 import com.stathis.runney.models.SearchCategory
 
 class SearchFragment : AbstractFragment() {
@@ -57,6 +58,9 @@ class SearchFragment : AbstractFragment() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 binding.searchSearchbar.clearFocus()
                 binding.searchSearchbar.setQuery("", false)
+
+                viewModel.insertQueryToDb(Query(query.toString()))
+
                 return true
             }
 
