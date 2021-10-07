@@ -2,7 +2,6 @@
 <layout>
 
     <data>
-
         <variable
             name="user"
             type="com.stathis.runney.features.dashboard.profile.model.User" />
@@ -22,7 +21,8 @@
             android:layout_height="@dimen/image_80"
             android:layout_marginTop="@dimen/dimen_20"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
+            loadImageFromUrl="@{user.image}"
+            tools:src="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

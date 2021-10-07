@@ -43,11 +43,11 @@ class ResultsViewModel(app: Application) : AbstractViewModel(app), ResultsCallba
 
     private fun getNews() {
         val list = listOf(
-            News("Lorem ipsum sit dolor amet"),
-            News("Lorem ipsum sit dolor amet"),
-            News("Lorem ipsum sit dolor amet"),
-            News("Lorem ipsum sit dolor amet"),
-            News("Lorem ipsum sit dolor amet"),
+            News(getString(R.string.dummy_title), getString(R.string.dummy_img)),
+            News(getString(R.string.dummy_title), getString(R.string.dummy_img)),
+            News(getString(R.string.dummy_title), getString(R.string.dummy_img)),
+            News(getString(R.string.dummy_title), getString(R.string.dummy_img)),
+            News(getString(R.string.dummy_title), getString(R.string.dummy_img)),
         )
 
         data.value = list
@@ -97,26 +97,11 @@ class ResultsViewModel(app: Application) : AbstractViewModel(app), ResultsCallba
 
     private fun getArticles() {
         val list = listOf(
-            Article(
-                "Lorem ipsum sit dolor amet",
-                "http://www.runningnews.gr/lib_photos/news21a/03/2021_03_05_cure.jpg"
-            ),
-            Article(
-                "Lorem ipsum sit dolor amet",
-                "http://www.runningnews.gr/lib_photos/news21a/03/2021_03_05_cure.jpg"
-            ),
-            Article(
-                "Lorem ipsum sit dolor amet",
-                "http://www.runningnews.gr/lib_photos/news21a/03/2021_03_05_cure.jpg"
-            ),
-            Article(
-                "Lorem ipsum sit dolor amet",
-                "http://www.runningnews.gr/lib_photos/news21a/03/2021_03_05_cure.jpg"
-            ),
-            Article(
-                "Lorem ipsum sit dolor amet",
-                "http://www.runningnews.gr/lib_photos/news21a/03/2021_03_05_cure.jpg"
-            ),
+            Article(getString(R.string.dummy_title), getString(R.string.dummy_img)),
+            Article(getString(R.string.dummy_title), getString(R.string.dummy_img)),
+            Article(getString(R.string.dummy_title), getString(R.string.dummy_img)),
+            Article(getString(R.string.dummy_title), getString(R.string.dummy_img)),
+            Article(getString(R.string.dummy_title), getString(R.string.dummy_img)),
         )
 
         data.value = list

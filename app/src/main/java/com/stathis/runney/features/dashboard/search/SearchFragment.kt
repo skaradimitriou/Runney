@@ -36,13 +36,15 @@ class SearchFragment : AbstractFragment() {
         viewModel.addCallbacks(object : SearchScreenCallback {
             override fun onCategoryTap(category : SearchCategory) = openCategory(category)
         })
+
+        viewModel.observe(this)
     }
 
     private fun openCategory(category : SearchCategory) {
         //do magic
     }
 
-    override fun stopOps() {}
+    override fun stopOps() = viewModel.release(this)
 
     private fun manageSearch() {
         binding.searchSearchbar.setOnClickListener {

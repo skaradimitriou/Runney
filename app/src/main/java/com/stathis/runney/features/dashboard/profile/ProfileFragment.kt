@@ -41,7 +41,7 @@ class ProfileFragment : AbstractFragment() {
 
         binding.editProfile.setOnClickListener { goToEditProfile() }
 
-        binding.darkModeLayout.darkModeSwitch.setOnCheckedChangeListener { compoundButton, isChecked ->
+        binding.darkModeLayout.darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
             when(isChecked){
                 true -> darkModeEnabled(true)
                 false -> darkModeEnabled(false)
