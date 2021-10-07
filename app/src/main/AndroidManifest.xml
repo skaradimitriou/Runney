@@ -43,15 +43,15 @@
             android:name=".features.register.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".features.splash.SplashActivity"
-            android:exported="true" />
+            android:name=".features.dashboard.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".features.login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".features.dashboard.MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustPan">
+            android:name=".features.splash.SplashActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

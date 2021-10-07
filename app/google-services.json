@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "987532267446",
+    "project_id": "runney-32d7b",
+    "storage_bucket": "runney-32d7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987532267446:android:f006190b159cfdbc103b17",
+        "android_client_info": {
+          "package_name": "com.stathis.runney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987532267446-9vhak3kq4539cgjkjpsls7ip4sh3r7u5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0tBf_BhQKPzBdOjZEK-iatoElfMZaxLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987532267446-9vhak3kq4539cgjkjpsls7ip4sh3r7u5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

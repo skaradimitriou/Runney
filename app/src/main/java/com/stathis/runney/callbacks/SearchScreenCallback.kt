@@ -1,8 +1,7 @@
 package com.stathis.runney.callbacks
 
-import com.stathis.runney.models.SearchCategory
+import com.stathis.runney.models.Query
 
 interface SearchScreenCallback {
-
-    fun onCategoryTap(category : SearchCategory)
+    fun onQueryTap(query: Query)
 }

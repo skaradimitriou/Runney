@@ -4,13 +4,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.stathis.runney.abstraction.LocalModel
 import com.stathis.runney.callbacks.SearchScreenCallback
 import com.stathis.runney.databinding.HolderSearchCategoryItemBinding
-import com.stathis.runney.models.SearchCategory
+import com.stathis.runney.models.Query
 
 class SearchViewHolder(val binding : HolderSearchCategoryItemBinding,val callback : SearchScreenCallback) : RecyclerView.ViewHolder(binding.root) {
 
     fun present(data : LocalModel){
         when(data){
-            is SearchCategory ->  binding.categoryTitle.text = data.title
+            is Query ->  {
+                binding.query = data
+                binding.parent.setOnClickListener { callback.onQueryTap(data) }
+            }
         }
     }
 }

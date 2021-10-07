@@ -35,14 +35,10 @@ class SearchFragment : AbstractFragment() {
         binding.topicsRecycler.adapter = viewModel.adapter
 
         viewModel.addCallbacks(object : SearchScreenCallback {
-            override fun onCategoryTap(category : SearchCategory) = openCategory(category)
+            override fun onQueryTap(query: Query) = viewModel.getResultsForQuery(query.query)
         })
 
         viewModel.observe(this)
-    }
-
-    private fun openCategory(category : SearchCategory) {
-        //do magic
     }
 
     override fun stopOps() = viewModel.release(this)

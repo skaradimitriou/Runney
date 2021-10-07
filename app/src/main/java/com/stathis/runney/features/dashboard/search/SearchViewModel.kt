@@ -40,6 +40,7 @@ class SearchViewModel : ViewModel(), SearchScreenCallback {
 
                     Log.d("", queryList.toString())
                 }
+                data.value = queryList
             }
     }
 
@@ -68,18 +69,18 @@ class SearchViewModel : ViewModel(), SearchScreenCallback {
     }
 
     fun getResultsForQuery(query: String) {
-        firestore.collection("doctors").get().addOnSuccessListener { docs ->
-            val list = arrayListOf<LocalModel>()
-            for (document in docs) {
-                Log.d(TAG, "${document.id} => ${document.data}")
-                val model = document.toObject(LocalModel::class.java)
-                list.add(model)
-            }
-
-            data.value = list
-        }.addOnFailureListener {
-            Log.d(TAG, "Error getting documents: ", it)
-        }
+//        firestore.collection("doctors").get().addOnSuccessListener { docs ->
+//            val list = arrayListOf<LocalModel>()
+//            for (document in docs) {
+//                Log.d(TAG, "${document.id} => ${document.data}")
+//                val model = document.toObject(LocalModel::class.java)
+//                list.add(model)
+//            }
+//
+//            data.value = list
+//        }.addOnFailureListener {
+//            Log.d(TAG, "Error getting documents: ", it)
+//        }
     }
 
     fun observe(owner : LifecycleOwner){
@@ -96,5 +97,5 @@ class SearchViewModel : ViewModel(), SearchScreenCallback {
         this.callback = callback
     }
 
-    override fun onCategoryTap(category: SearchCategory) = callback.onCategoryTap(category)
+    override fun onQueryTap(query: Query) = callback.onQueryTap(query)
 }
