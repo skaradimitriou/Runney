@@ -74,7 +74,9 @@ class ProfileFragment : AbstractFragment() {
     }
 
     private fun goToBookmarks() {
-        startActivity(Intent(requireContext(), BookmarkActivity::class.java))
+        startActivity(Intent(requireContext(), BookmarkActivity::class.java).also {
+            it.putExtra(getString(R.string.title_uppercase),getString(R.string.bookmarks))
+        })
     }
 
     private fun goToSettings() {
@@ -82,7 +84,9 @@ class ProfileFragment : AbstractFragment() {
     }
 
     private fun goToFavorites() {
-        startActivity(Intent(requireContext(), BookmarkActivity::class.java))
+        startActivity(Intent(requireContext(), BookmarkActivity::class.java).also {
+            it.putExtra(getString(R.string.title_uppercase),getString(R.string.favorites))
+        })
     }
 
     override fun stopOps() = viewModel.user.removeObservers(this)

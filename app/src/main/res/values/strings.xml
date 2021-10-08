@@ -39,6 +39,7 @@
     <string name="greeting">Hello</string>
     <string name="nav_seach">Αναζήτηση</string>
 
+    <string name="title_uppercase">TITLE</string>
     <string name="dummy_title">Lorem Ipsum sit dolor amet</string>
     <string name="dummy_img">http://www.runningnews.gr/lib_photos/news21a/03/2021_03_05_cure.jpg</string>
 
