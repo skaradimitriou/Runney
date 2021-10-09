@@ -42,5 +42,7 @@
     <string name="title_uppercase">TITLE</string>
     <string name="dummy_title">Lorem Ipsum sit dolor amet</string>
     <string name="dummy_img">http://www.runningnews.gr/lib_photos/news21a/03/2021_03_05_cure.jpg</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
 
 </resources>

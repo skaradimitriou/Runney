@@ -1,6 +1,7 @@
 package com.stathis.runney.models
 
 import com.stathis.runney.abstraction.LocalModel
+import java.io.Serializable
 
 data class RunningRace(
 
@@ -10,7 +11,7 @@ data class RunningRace(
     val location : String,
     val cost : Int
 
-) : LocalModel {
+) : Serializable,LocalModel {
     override fun equalsContent(data: LocalModel): Boolean = false
     constructor() : this ("","","","",0)
 }

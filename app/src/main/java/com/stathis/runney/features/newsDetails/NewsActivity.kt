@@ -59,8 +59,14 @@ class NewsActivity : AbstractActivity() {
         menuInflater.inflate(R.menu.details_menu,menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+
             R.id.share_btn -> {
                 shareNews()
                 true

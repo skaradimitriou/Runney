@@ -72,16 +72,14 @@ class ResultsActivity : AbstractActivity() {
     }
 
     private fun openRace(race : RunningRace){
-        val json = Gson().toJson(race)
         startActivity(Intent(this,RaceDetailsActivity::class.java).also{
-            it.putExtra("RACE",json)
+            it.putExtra("RACE",race)
         })
     }
 
     private fun openArticle(article : Article){
-        val json = Gson().toJson(article)
         startActivity(Intent(this, ArticleDetailsActivity::class.java).also{
-            it.putExtra("ARTICLE",json)
+            it.putExtra("ARTICLE",article)
         })
     }
 
