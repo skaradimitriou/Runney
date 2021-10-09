@@ -16,6 +16,7 @@ import com.stathis.runney.features.raceDetails.RaceDetailsActivity
 import com.stathis.runney.models.Article
 import com.stathis.runney.models.News
 import com.stathis.runney.models.RunningRace
+import java.lang.RuntimeException
 
 class ResultsActivity : AbstractActivity() {
 
@@ -65,9 +66,8 @@ class ResultsActivity : AbstractActivity() {
     }
 
     private fun openNews(news: News){
-        val json = Gson().toJson(news)
         startActivity(Intent(this,NewsActivity::class.java).also{
-            it.putExtra("NEWS",json)
+            it.putExtra("NEWS",news)
         })
     }
 

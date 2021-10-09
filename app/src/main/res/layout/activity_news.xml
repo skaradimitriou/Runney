@@ -1,11 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".features.newsDetails.NewsActivity">
+<layout>
 
+    <data>
 
+        <variable
+            name="news"
+            type="com.stathis.runney.models.News" />
+    </data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/activity_news_scene"
+        tools:context=".features.newsDetails.NewsActivity">
+
+        <ImageView
+            android:id="@+id/news_img"
+            loadImageFromUrl="@{news.image}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_200"
+            android:contentDescription="@{news.title}"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="@dimen/dimen_5"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:background="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@id/news_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/news_title" />
+
+        <TextView
+            android:id="@+id/news_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:padding="@dimen/dimen_10"
+            android:text="@{news.title}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/news_img"
+            tools:text="@string/lorem_ipsum" />
+
+        <TextView
+            android:id="@+id/news_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:padding="@dimen/dimen_10"
+            android:text="@string/long_text"
+            app:layout_constraintStart_toStartOf="@id/news_title"
+            app:layout_constraintTop_toBottomOf="@id/news_title"
+            tools:text="@string/long_text" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

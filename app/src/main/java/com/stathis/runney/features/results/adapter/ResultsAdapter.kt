@@ -3,18 +3,12 @@ package com.stathis.runney.features.results.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.stathis.runney.R
 import com.stathis.runney.abstraction.DiffUtilClass
 import com.stathis.runney.abstraction.EmptyViewHolder
 import com.stathis.runney.abstraction.LocalModel
-import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.callbacks.ResultsCallback
-import com.stathis.runney.databinding.HolderArticleItemBinding
-import com.stathis.runney.databinding.HolderEmptyLayoutBinding
-import com.stathis.runney.databinding.HolderNewsVerticalItemBinding
-import com.stathis.runney.databinding.HolderRacesVerticalItemBinding
-import com.stathis.runney.features.races.adapter.RacesScreenViewHolder
+import com.stathis.runney.databinding.*
 import com.stathis.runney.models.Article
 import com.stathis.runney.models.News
 import com.stathis.runney.models.RunningRace
@@ -28,6 +22,7 @@ class ResultsAdapter(val callback : ResultsCallback) : ListAdapter<LocalModel,Ba
                 val view = HolderRacesVerticalItemBinding.inflate(inflater,parent,false)
                 ResultsViewHolder(view,callback)
             }
+
             R.layout.holder_news_vertical_item -> {
                 val view = HolderNewsVerticalItemBinding.inflate(inflater,parent,false)
                 NewsViewHolder(view,callback)

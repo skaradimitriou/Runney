@@ -12,4 +12,5 @@ data class RunningRace(
 
 ) : LocalModel {
     override fun equalsContent(data: LocalModel): Boolean = false
+    constructor() : this ("","","","",0)
 }

@@ -1,10 +1,13 @@
 package com.stathis.runney.features.results
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Source
 import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractViewModel
 import com.stathis.runney.abstraction.LocalModel
@@ -13,13 +16,14 @@ import com.stathis.runney.features.results.adapter.ResultsAdapter
 import com.stathis.runney.models.Article
 import com.stathis.runney.models.News
 import com.stathis.runney.models.RunningRace
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import java.util.*
 
 class ResultsViewModel(app: Application) : AbstractViewModel(app), ResultsCallback {
 
+    private val firestore = FirebaseFirestore.getInstance()
     val adapter = ResultsAdapter(this)
-    val data = MutableLiveData<List<LocalModel>>()
+    val results = MutableLiveData<List<LocalModel>>()
     val isLoading = MutableLiveData<Boolean>()
     private lateinit var callback: ResultsCallback
 
@@ -50,49 +54,26 @@ class ResultsViewModel(app: Application) : AbstractViewModel(app), ResultsCallba
             News(getString(R.string.dummy_title), getString(R.string.dummy_img)),
         )
 
-        data.value = list
+        results.value = list
     }
 
     private fun getRaces() {
-        val list = listOf(
-            RunningRace(
-                "6ος Δρόμος των Αλκυόνων Night Run 29,7 & 6,6 χλμ",
-                "http://www.runningnews.gr/lib_photos/gallery16/2016_02_20_100-50k/SPYR9748.jpg",
-                "02 Οκτ 21",
-                "Athens, Greece",
-                10
-            ),
-            RunningRace(
-                "5ος Αγώνας Δρόμου Αλμυρού «Almyros City – Zerelia Lakes»",
-                "http://www.runningnews.gr/lib_photos/gallery18/2018_10_07_almyros/ekkinisi_hmi.jpg",
-                "03 Οκτ 21",
-                "Athens, Greece",
-                10
-            ),
-            RunningRace(
-                "Αγωνιστικός Δόλιχος Δρόμος - Ισσωρία Άρτεμις",
-                "http://www.runningnews.gr/lib_photos/news21a/08/2021_08_30_issoria.jpg",
-                "03 Οκτ 21",
-                "Athens, Greece",
-                10
-            ),
-            RunningRace(
-                "1o Flamingo Run",
-                "http://www.runningnews.gr/lib_photos/news21a/09/2021_09_02_Flamingo.jpg",
-                "03 Οκτ 21",
-                "Athens, Greece",
-                10
-            ),
-            RunningRace(
-                "Greece Race for the Cure®2021",
-                "http://www.runningnews.gr/lib_photos/news21a/03/2021_03_05_cure.jpg",
-                "03 Οκτ 21",
-                "Athens, Greece",
-                10
-            )
-        )
+        firestore.collection("races").get().addOnSuccessListener { docs ->
+            val racesList = arrayListOf<RunningRace>()
+            for (document in docs) {
+                val race = document.toObject(RunningRace::class.java)
+                racesList.add(race)
+            }
 
-        data.value = list
+            /*
+                This should be sorted according to date
+             */
+
+            results.value = racesList
+        }.addOnFailureListener {
+            Log.d("TAG", "Error getting documents: ", it)
+            results.value = null
+        }
     }
 
     private fun getArticles() {
@@ -104,18 +85,18 @@ class ResultsViewModel(app: Application) : AbstractViewModel(app), ResultsCallba
             Article(getString(R.string.dummy_title), getString(R.string.dummy_img)),
         )
 
-        data.value = list
+        results.value = list
     }
 
     fun observe(owner: LifecycleOwner) {
-        data.observe(owner, Observer {
+        results.observe(owner, Observer {
             adapter.submitList(it)
             isLoading.value = false
         })
     }
 
     fun release(owner: LifecycleOwner) {
-        data.removeObservers(owner)
+        results.removeObservers(owner)
     }
 
     override fun onNewsTap(news: News) = callback.onNewsTap(news)
