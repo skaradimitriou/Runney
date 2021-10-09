@@ -19,6 +19,8 @@ class SplashActivity : AbstractActivity() {
     }
 
     override fun init() {
+        supportActionBar?.hide()
+
         Handler(Looper.getMainLooper()).postDelayed({
             val mainIntent = Intent(this, LoginActivity::class.java)
             startActivity(mainIntent)

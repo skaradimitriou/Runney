@@ -47,8 +47,6 @@ class NewsActivity : AbstractActivity() {
                 false -> false
             }
         })
-
-
     }
 
     override fun stopOps() {
