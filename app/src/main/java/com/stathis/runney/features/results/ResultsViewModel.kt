@@ -2,6 +2,7 @@ package com.stathis.runney.features.results
 
 import android.app.Application
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -11,6 +12,7 @@ import com.google.firebase.firestore.Source
 import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractViewModel
 import com.stathis.runney.abstraction.LocalModel
+import com.stathis.runney.callbacks.ItemClickListener
 import com.stathis.runney.callbacks.ResultsCallback
 import com.stathis.runney.features.results.adapter.ResultsAdapter
 import com.stathis.runney.models.Article
@@ -19,7 +21,7 @@ import com.stathis.runney.models.RunningRace
 import kotlinx.coroutines.*
 import java.util.*
 
-class ResultsViewModel(app: Application) : AbstractViewModel(app), ResultsCallback {
+class ResultsViewModel(app: Application) : AbstractViewModel(app), ItemClickListener {
 
     private val firestore = FirebaseFirestore.getInstance()
     val adapter = ResultsAdapter(this)
@@ -99,7 +101,13 @@ class ResultsViewModel(app: Application) : AbstractViewModel(app), ResultsCallba
         results.removeObservers(owner)
     }
 
-    override fun onNewsTap(news: News) = callback.onNewsTap(news)
-    override fun onRaceTap(race: RunningRace) = callback.onRaceTap(race)
-    override fun onArticleTap(article: Article) = callback.onArticleTap(article)
+    //override fun onNewsTap(news: News) = callback.onNewsTap(news)
+    //override fun onRaceTap(race: RunningRace) = callback.onRaceTap(race)
+    //override fun onArticleTap(article: Article) = callback.onArticleTap(article)
+
+    override fun onItemTap(view: View) {
+        when(view.tag){
+//            is Article -> println("Got the click")
+        }
+    }
 }

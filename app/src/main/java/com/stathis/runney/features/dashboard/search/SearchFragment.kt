@@ -6,25 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
+import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractFragment
 import com.stathis.runney.callbacks.SearchScreenCallback
 import com.stathis.runney.databinding.FragmentSearchBinding
 import com.stathis.runney.models.Query
 import com.stathis.runney.models.SearchCategory
 
-class SearchFragment : AbstractFragment() {
+class SearchFragment : AbstractFragment<FragmentSearchBinding>(R.layout.fragment_search) {
 
     private lateinit var viewModel : SearchViewModel
-    private lateinit var binding : FragmentSearchBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentSearchBinding.inflate(layoutInflater)
-        return binding.root
-    }
 
     override fun init() {
         viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)

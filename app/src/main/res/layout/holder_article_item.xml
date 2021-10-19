@@ -5,6 +5,10 @@
         <variable
             name="article"
             type="com.stathis.runney.models.Article" />
+
+        <variable
+            name="callback"
+            type="com.stathis.runney.callbacks.ItemClickListener" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,6 +16,8 @@
         style="@style/CardView.Light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{article}"
         android:layout_margin="@dimen/dimen_15"
         app:cardCornerRadius="@dimen/dimen_10">
 

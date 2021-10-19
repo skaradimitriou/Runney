@@ -18,19 +18,9 @@ import com.stathis.runney.features.dashboard.profile.model.ProfileOption
 import com.stathis.runney.features.editProfile.EditProfileActivity
 
 
-class ProfileFragment : AbstractFragment() {
+class ProfileFragment : AbstractFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
 
-    private lateinit var binding : FragmentProfileBinding
     private lateinit var viewModel: ProfileViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentProfileBinding.inflate(layoutInflater)
-        return binding.root
-    }
 
     override fun init() {
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)

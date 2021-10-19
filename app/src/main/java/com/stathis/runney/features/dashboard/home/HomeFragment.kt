@@ -21,19 +21,9 @@ import androidx.recyclerview.widget.OrientationHelper
 import com.stathis.runney.features.results.ResultsActivity
 
 
-class HomeFragment : AbstractFragment() {
+class HomeFragment : AbstractFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
-    private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(layoutInflater)
-        return binding.root
-    }
 
     override fun init() {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
