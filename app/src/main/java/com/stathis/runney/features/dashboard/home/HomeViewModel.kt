@@ -1,6 +1,7 @@
 package com.stathis.runney.features.dashboard.home
 
 import android.app.Application
+import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -9,13 +10,14 @@ import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractViewModel
 import com.stathis.runney.abstraction.LocalModel
 import com.stathis.runney.callbacks.HomeScreenCallback
+import com.stathis.runney.callbacks.ItemClickListener
 import com.stathis.runney.features.dashboard.home.adapter.HomeAdapter
 import com.stathis.runney.features.dashboard.home.model.HomeItem
 import com.stathis.runney.features.dashboard.profile.model.User
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class HomeViewModel(app: Application) : AbstractViewModel(app), HomeScreenCallback {
+class HomeViewModel(app: Application) : AbstractViewModel(app), ItemClickListener {
 
     val data = MutableLiveData<List<LocalModel>>()
     val user = MutableLiveData<User>()
@@ -59,5 +61,9 @@ class HomeViewModel(app: Application) : AbstractViewModel(app), HomeScreenCallba
         data.removeObservers(owner)
     }
 
-    override fun onHomeItemTap(item: HomeItem) = callback.onHomeItemTap(item)
+    override fun onItemTap(view: View) {
+        when(view.tag){
+            is HomeItem -> callback.onHomeItemTap(view.tag as HomeItem)
+        }
+    }
 }

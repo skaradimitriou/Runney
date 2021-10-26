@@ -2,7 +2,6 @@
 <layout>
 
     <data>
-
         <variable
             name="news"
             type="com.stathis.runney.models.News" />

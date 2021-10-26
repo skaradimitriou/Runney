@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.ListAdapter
 import com.stathis.runney.abstraction.DiffUtilClass
 import com.stathis.runney.abstraction.LocalModel
 import com.stathis.runney.callbacks.HomeScreenCallback
+import com.stathis.runney.callbacks.ItemClickListener
 import com.stathis.runney.databinding.HolderHomeOptionItemBinding
 
-class HomeAdapter(val callback : HomeScreenCallback) : ListAdapter<LocalModel, HomeViewHolder>(DiffUtilClass<LocalModel>()) {
+class HomeAdapter(val callback : ItemClickListener) : ListAdapter<LocalModel, HomeViewHolder>(DiffUtilClass<LocalModel>()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val view = HolderHomeOptionItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -16,6 +17,6 @@ class HomeAdapter(val callback : HomeScreenCallback) : ListAdapter<LocalModel, H
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.present(getItem(position))
+        holder.bindData(getItem(position))
     }
 }

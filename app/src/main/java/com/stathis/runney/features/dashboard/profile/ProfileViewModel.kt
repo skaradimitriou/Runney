@@ -1,16 +1,18 @@
 package com.stathis.runney.features.dashboard.profile
 
 import android.app.Application
+import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractViewModel
+import com.stathis.runney.callbacks.ItemClickListener
 import com.stathis.runney.callbacks.ProfileOptionsCallback
 import com.stathis.runney.features.dashboard.profile.adapter.ProfileOptionsAdapter
 import com.stathis.runney.features.dashboard.profile.model.ProfileOption
 import com.stathis.runney.features.dashboard.profile.model.User
 
-class ProfileViewModel(app: Application) : AbstractViewModel(app), ProfileOptionsCallback {
+class ProfileViewModel(app: Application) : AbstractViewModel(app), ItemClickListener {
 
     val adapter = ProfileOptionsAdapter(this)
     val user = MutableLiveData<User>()
@@ -40,5 +42,9 @@ class ProfileViewModel(app: Application) : AbstractViewModel(app), ProfileOption
         )
     }
 
-    override fun onOptionTap(option: ProfileOption) = callback.onOptionTap(option)
+    override fun onItemTap(view: View) {
+        when(view.tag){
+            is ProfileOption -> callback.onOptionTap(view.tag as ProfileOption)
+        }
+    }
 }

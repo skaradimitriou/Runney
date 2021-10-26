@@ -1,11 +1,13 @@
 package com.stathis.runney.features.races
 
+import android.view.View
 import androidx.lifecycle.ViewModel
+import com.stathis.runney.callbacks.ItemClickListener
 import com.stathis.runney.callbacks.RacesClickListener
 import com.stathis.runney.features.races.adapter.RacesScreenAdapter
 import com.stathis.runney.models.RunningRace
 
-class RacesViewModel : ViewModel(), RacesClickListener {
+class RacesViewModel : ViewModel(), ItemClickListener {
 
     val adapter = RacesScreenAdapter(this)
     private lateinit var callback : RacesClickListener
@@ -22,7 +24,9 @@ class RacesViewModel : ViewModel(), RacesClickListener {
         ))
     }
 
-    override fun onRaceTap(race: RunningRace) {
-        callback.onRaceTap(race)
+    override fun onItemTap(view: View) {
+        when(view.tag){
+            is RunningRace -> callback.onRaceTap(view.tag as RunningRace)
+        }
     }
 }

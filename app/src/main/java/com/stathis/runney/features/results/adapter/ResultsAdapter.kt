@@ -4,12 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.stathis.runney.R
-import com.stathis.runney.abstraction.AbstractBindingViewHolder
 import com.stathis.runney.abstraction.DiffUtilClass
-import com.stathis.runney.abstraction.EmptyViewHolder
 import com.stathis.runney.abstraction.LocalModel
 import com.stathis.runney.callbacks.ItemClickListener
-import com.stathis.runney.callbacks.ResultsCallback
 import com.stathis.runney.databinding.*
 import com.stathis.runney.models.Article
 import com.stathis.runney.models.News

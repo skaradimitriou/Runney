@@ -1,6 +1,7 @@
 package com.stathis.runney.features.dashboard.search
 
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -9,13 +10,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import com.stathis.runney.abstraction.LocalModel
+import com.stathis.runney.callbacks.ItemClickListener
 import com.stathis.runney.callbacks.SearchScreenCallback
 import com.stathis.runney.features.dashboard.search.adapter.SearchAdapter
 import com.stathis.runney.models.Query
 import com.stathis.runney.models.SearchCategory
 import com.stathis.runney.util.TAG
 
-class SearchViewModel : ViewModel(), SearchScreenCallback {
+class SearchViewModel : ViewModel(), ItemClickListener {
 
     val firestore = FirebaseFirestore.getInstance()
     val auth by lazy { FirebaseAuth.getInstance() }
@@ -97,5 +99,9 @@ class SearchViewModel : ViewModel(), SearchScreenCallback {
         this.callback = callback
     }
 
-    override fun onQueryTap(query: Query) = callback.onQueryTap(query)
+    override fun onItemTap(view: View) {
+        when(view.tag){
+            is Query -> callback.onQueryTap(view.tag as Query)
+        }
+    }
 }
