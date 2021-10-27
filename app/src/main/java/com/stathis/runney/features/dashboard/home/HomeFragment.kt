@@ -33,14 +33,7 @@ class HomeFragment : AbstractFragment<FragmentHomeBinding>(R.layout.fragment_hom
         binding.staggeredRecycler.adapter = viewModel.adapter
 
         viewModel.bindCallback(object : HomeScreenCallback {
-            override fun onHomeItemTap(item: HomeItem) {
-                when(item.title){
-                    getString(R.string.news) -> goToResults(item.title)
-                    getString(R.string.article) -> goToResults(item.title)
-                    getString(R.string.running_races) -> goToResults(item.title)
-                    getString(R.string.something_else) -> goToResults(item.title)
-                }
-            }
+            override fun onHomeItemTap(item: HomeItem) = goToResults(item.title)
         })
 
         viewModel.observe(this)

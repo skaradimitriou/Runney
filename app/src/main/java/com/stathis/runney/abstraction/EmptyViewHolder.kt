@@ -1,10 +1,8 @@
 package com.stathis.runney.abstraction
 
-import com.stathis.runney.databinding.HolderEmptyLayoutBinding
-import com.stathis.runney.features.results.adapter.BaseViewHolder
+import androidx.databinding.ViewDataBinding
 
-class EmptyViewHolder(val binding : HolderEmptyLayoutBinding) : BaseViewHolder(binding.root) {
-    override fun present(data: LocalModel) {
-        //
-    }
+class EmptyViewHolder(val binding : ViewDataBinding) : AbstractViewHolder(binding) {
+
+    override fun present(data: LocalModel) {}
 }

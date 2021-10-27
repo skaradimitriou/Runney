@@ -1,9 +1,7 @@
 package com.stathis.runney.features.dashboard
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.stathis.runney.R
 import com.stathis.runney.abstraction.AbstractActivity
 import com.stathis.runney.databinding.ActivityMainBinding
